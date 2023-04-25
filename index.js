@@ -1,14 +1,19 @@
 const express = require('express');
 
-const App = express();
+const app = express();
 
 app.use(express.json());
 
 
+app.use(express.urlencoded({extended:true}));
+
+const makerController = require('./controller/makerController');
+
+
+app.use('/', makerController);
 
 
 
-
-App.listen(3000, ()=>{
-    console.log("Servidor rodando na porta 3000!")
-})
+app.listen(3000, ()=>{
+    console.log("Servidor rodando no localhost 3000!")
+});
