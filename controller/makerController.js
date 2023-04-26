@@ -1,7 +1,7 @@
 const express = require ('express');
 
-const makerModel = require ('../model/makerModel');
-const maker = require ('../model/makerModel');
+const makerModel = require ('../modal/makerModel');
+const maker = require ('../modal/makerModel');
 
 const router = express.Router();
 //Inserção de dados na tabela fabricante
@@ -18,7 +18,7 @@ router.post('/maker/insert', (req, res)=>{
             return res.status(201).json(
                 {
                     errorStatus: false,
-                    mensageStatus:'Categoria inserida com sucesso!'
+                    mensageStatus:'Fabricante inserido com sucesso!'
                 }
             )
         }

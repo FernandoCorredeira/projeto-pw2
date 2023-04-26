@@ -18,8 +18,8 @@ const connection = new sequelize(
     'root',
     '',
     {
-        host: 'locahost',
-        port: '3306',
+        host: 'localhost',
+        port: '3307',
         dialect: 'mysql',
         timezone: '-03:00'
     }
