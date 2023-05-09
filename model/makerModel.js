@@ -37,6 +37,6 @@ const maker = connection.define(
     }
 );
 //UTILIZAR APENAS UMA VEZ PARA A CRIAÇÃO DA TABLE
-maker.sync({force:true});
+//maker.sync({force:true});
 
 module.exports = maker;
