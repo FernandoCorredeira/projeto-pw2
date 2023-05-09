@@ -1,16 +1,19 @@
 const express = require ('express');
 
-const makerModel = require ('../modal/makerModal');
-const maker = require ('../modal/makerModal');
+const makerModel = require ('../model/makerModel');
+const maker = require ('../model/makerModel');
 
 const router = express.Router();
 //Inserção de dados na tabela fabricante
 router.post('/maker/insert', (req, res)=>{
     let name_maker = req.body.name_maker;
+    let name_product_maker = req.body.name_product_maker;
     let cnpj_maker = req.body.cnpj_maker;
+    let phone_maker = req.body.phone_maker;
+    let email_maker = req.body.email_maker;
 
     makerModel.create(
-        {name_maker,cnpj_maker}
+        {name_maker,name_product_maker,cnpj_maker,phone_maker,email_maker}
     )
     //Pausa a controller, até que tenha um resultado
     .then(
@@ -54,14 +57,17 @@ router.get('/maker/select', (req, res)=>{
     )
 });
 //Alteração de dados na tabela fabricante
-router.put('/maker/alter',()=>{
+router.put('/maker/alter',(req, res)=>{
     let id = req.body.id;
     let name_maker = req.body.name_maker;
+    let name_product_maker = req.body.name_product_maker;
     let cnpj_maker = req.body.cnpj_maker;
+    let phone_maker = req.body.phone_maker;
+    let email_maker = req.body.email_maker;
 
 //Metodo de alteração
     makerModel.update(
-        {name_maker,cnpj_maker},
+        {name_maker,name_product_maker,cnpj_maker,phone_maker, email_maker},
         {where:{id}}
     )
     //Pausa a controller, até que tenha um resultado

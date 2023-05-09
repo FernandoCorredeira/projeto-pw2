@@ -18,13 +18,25 @@ const maker = connection.define(
             type: sequelize.STRING,
             allowNull: false
         },
+        name_product_maker:{
+            type: sequelize.STRING,
+            allowNull: false
+        },
         cnpj_maker:{
+            type: sequelize.STRING,
+            allowNull: false
+        },
+        phone_maker:{
+            type: sequelize.STRING,
+            allowNull: false
+        },
+        email_maker:{
             type: sequelize.STRING,
             allowNull: false
         }
     }
 );
 //UTILIZAR APENAS UMA VEZ PARA A CRIAÇÃO DA TABLE
-//maker.sync({force:true});
+maker.sync({force:true});
 
 module.exports = maker;

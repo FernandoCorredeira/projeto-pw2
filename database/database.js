@@ -14,7 +14,7 @@ PARAMETROS:
 */
 
 const connection = new sequelize(
-    'project-pw2-videogame',
+    'project_pw2_videogame',
     'root',
     '',
     {
