@@ -1,7 +1,7 @@
 const express = require ('express');
 
 const makerModel = require ('../model/makerModel');
-const maker = require ('../model/makerModel');
+
 
 const router = express.Router();
 //Inserção de dados na tabela fabricante

@@ -13,7 +13,7 @@ PARAMETROS:
 */
 const maker = connection.define(
     'tbl_maker',
-    {
+    { 
         name_maker:{
             type: sequelize.STRING,
             allowNull: false

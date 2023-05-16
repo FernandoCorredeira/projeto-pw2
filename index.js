@@ -8,8 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 const makerController = require('./controller/makerController');
+const productController = require('./controller/productController');
 
-
+app.use('/', productController);
 app.use('/', makerController);
 
 
