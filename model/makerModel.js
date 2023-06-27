@@ -18,10 +18,6 @@ const maker = connection.define(
             type: sequelize.STRING,
             allowNull: false
         },
-        name_product_maker:{
-            type: sequelize.STRING,
-            allowNull: false
-        },
         cnpj_maker:{
             type: sequelize.STRING,
             allowNull: false
@@ -37,6 +33,6 @@ const maker = connection.define(
     }
 );
 //UTILIZAR APENAS UMA VEZ PARA A CRIAÇÃO DA TABLE
-//maker.sync({force:true});
+//maker.sync({force:true})
 
 module.exports = maker;

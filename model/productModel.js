@@ -3,7 +3,7 @@ const sequelize  = require('sequelize');
 
 /* IMPORTAÇÃO DA CONEXÃO COM O BANCO DE DADOS */
 const connection = require('../database/database');
-
+const maker = require('./makerModel')
 
 
 /* 
@@ -17,19 +17,26 @@ const product = connection.define(
     'tbl_product',
     {
         name_product:{
-            type: sequelize.STRING,
+            type: sequelize.STRING(120),
             allowNull: false
         },
         value_product:{
-            type: sequelize.DECIMAL(6,3),
+            type: sequelize.STRING(20),
             allowNull: false
         },
         description_product:{
-            type: sequelize.STRING,
+            type: sequelize.STRING(300),
+        },
+        photo_product:{
+            type:sequelize.STRING(500)
+
         }
+
     }
 );
+maker.hasMany(product);
 
+product.belongsTo(maker)
 //UTILIZAR APENAS UMA VEZ PARA A CRIAÇÃO DA TABLE
 //product.sync({force:true});
 

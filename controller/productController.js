@@ -1,18 +1,25 @@
 const express = require ('express');
 
 const productModel = require ('../model/productModel');
+const upload = require('../help/upload/upload');
 
 
 const router = express.Router();
 //Inserção de dados na tabela fabricante
-router.post('/product/insert', (req, res)=>{
-    let name_product = req.body.name_product;
-    let value_product = req.body.value_product;
-    let description_product = req.body.description_product;
+router.post('/product/insert',upload.array('photo_product',1), (req, res)=>{
+    let {name_product,value_product, 
+    description_product, 
+    tblMakerId} = req.body;
+
+    let photo_product = req.files[0].path
 
 
     productModel.create(
-        {name_product,value_product,description_product}
+        {name_product,
+            value_product,
+            description_product, 
+            photo_product,
+            tblMakerId}
     )
     //Pausa a controller, até que tenha um resultado
     .then(
@@ -58,13 +65,18 @@ router.get('/product/select', (req, res)=>{
 //Alteração de dados na tabela fabricante
 router.put('/product/alter',(req, res)=>{
     let id = req.body.id
-    let name_product = req.body.name_product;
-    let value_product = req.body.value_product;
-    let description_product = req.body.description_product;
+    let {name_product, 
+        value_product,
+        description_product,
+        tblMakerId} = req.body;
+    
 
 //Metodo de alteração
     productModel.update(
-        {name_product,value_product,description_product},
+        {name_product,
+            value_product,
+            description_product,
+            tblMakerId},
         {where:{id}}
     )
     //Pausa a controller, até que tenha um resultado

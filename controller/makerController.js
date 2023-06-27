@@ -6,14 +6,13 @@ const makerModel = require ('../model/makerModel');
 const router = express.Router();
 //Inserção de dados na tabela fabricante
 router.post('/maker/insert', (req, res)=>{
-    let name_maker = req.body.name_maker;
-    let name_product_maker = req.body.name_product_maker;
-    let cnpj_maker = req.body.cnpj_maker;
-    let phone_maker = req.body.phone_maker;
-    let email_maker = req.body.email_maker;
+    let {name_maker,
+    cnpj_maker,
+    email_maker,
+    phone_maker}  = req.body;
 
     makerModel.create(
-        {name_maker,name_product_maker,cnpj_maker,phone_maker,email_maker}
+        {name_maker,cnpj_maker,phone_maker,email_maker}
     )
     //Pausa a controller, até que tenha um resultado
     .then(
@@ -59,15 +58,15 @@ router.get('/maker/select', (req, res)=>{
 //Alteração de dados na tabela fabricante
 router.put('/maker/alter',(req, res)=>{
     let id = req.body.id;
-    let name_maker = req.body.name_maker;
-    let name_product_maker = req.body.name_product_maker;
-    let cnpj_maker = req.body.cnpj_maker;
-    let phone_maker = req.body.phone_maker;
-    let email_maker = req.body.email_maker;
+    let {name_maker,
+        cnpj_maker,
+        phone_maker,
+        email_maker} = req.body;
+
 
 //Metodo de alteração
     makerModel.update(
-        {name_maker,name_product_maker,cnpj_maker,phone_maker, email_maker},
+        {name_maker,cnpj_maker,phone_maker, email_maker},
         {where:{id}}
     )
     //Pausa a controller, até que tenha um resultado
